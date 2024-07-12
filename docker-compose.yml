@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+
+  mongo_client:
+    image: mongo
+    container_name: mongo_client
+    command: ['sleep', 'infinity']
+    depends_on:
+      - mongodb
+    networks:
+      - default
+
+volumes:
+  mongo_data:
