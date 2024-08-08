@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/sanLimbu/hotel-reservation/types"
+	"github.com/sanLimbu/horroscope/types"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"

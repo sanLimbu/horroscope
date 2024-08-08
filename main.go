@@ -7,8 +7,8 @@ import (
 	"log"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/sanLimbu/hotel-reservation/api"
-	"github.com/sanLimbu/hotel-reservation/types"
+	"github.com/sanLimbu/horroscope/api"
+	"github.com/sanLimbu/horroscope/types"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -16,7 +16,7 @@ import (
 
 const (
 	dburi          = "mongodb://localhost:27017"
-	dbname         = "hotel-reservation"
+	dbname         = "horroscope"
 	userCollection = "users"
 )
 

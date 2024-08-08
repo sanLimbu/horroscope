@@ -3,7 +3,7 @@ package api
 import (
 	"fmt"
 
-	"github.com/sanLimbu/hotel-reservation/types"
+	"github.com/sanLimbu/horroscope/types"
 
 	"github.com/gofiber/fiber/v2"
 )

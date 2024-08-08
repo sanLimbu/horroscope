@@ -9,8 +9,8 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/sanLimbu/hotel-reservation/db"
-	"github.com/sanLimbu/hotel-reservation/types"
+	"github.com/sanLimbu/horroscope/db"
+	"github.com/sanLimbu/horroscope/types"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 

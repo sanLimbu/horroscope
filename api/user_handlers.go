@@ -3,8 +3,8 @@ package api
 import (
 	"errors"
 
-	"github.com/sanLimbu/hotel-reservation/db"
-	"github.com/sanLimbu/hotel-reservation/types"
+	"github.com/sanLimbu/horroscope/db"
+	"github.com/sanLimbu/horroscope/types"
 	"go.mongodb.org/mongo-driver/mongo"
 
 	"github.com/gofiber/fiber/v2"
