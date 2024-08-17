@@ -8,5 +8,7 @@ type Pagination struct {
 }
 
 type Store struct {
-	User UserStore
+	User      UserStore
+	Zodiac    ZodiacSignStore
+	Horoscope HoroscopeStore
 }
