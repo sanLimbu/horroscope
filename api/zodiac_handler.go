@@ -33,6 +33,24 @@ func (h *ZodiacHandler) HandleGetHoroscopes(c *fiber.Ctx) error {
 	return c.JSON(zodiacs)
 }
 
-// func (h *ZodiacHandler) HandleGEtHotel(c *fiber.Ctx) error {
+func (h *ZodiacHandler) HandleGetZodiac(c *fiber.Ctx) error {
 
-// }
+	id := c.Params("id")
+	zodiac, err := h.store.Zodiac.GetZodiacByID(c.Context(), id)
+	if err != nil {
+		return ErrNotResourceNotFound("zodiac")
+	}
+
+	return c.JSON(zodiac)
+
+}
+
+type ResourceResp struct {
+	Results int `json:"results"`
+	Data    any `json:"data"`
+	Page    int `json:"page"`
+}
+
+type ZodiacQueryParams struct {
+	db.Pagination
+}

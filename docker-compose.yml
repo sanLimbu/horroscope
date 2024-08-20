@@ -5,12 +5,12 @@ services:
     image: mongo
     container_name: mongodb
     ports:
-      - 27017:27017
+      - "27017:27017"
     volumes:
       - mongo_data:/data/db
 
   mongo_client:
-    image: mongo
+    image: mongo_client
     container_name: mongo_client
     command: sleep infinity
     depends_on:
@@ -18,8 +18,32 @@ services:
     networks:
       - default
 
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: astrologer
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - default
+
+  postgres_client:
+    image: postgres_client
+    container_name: postgres_client
+    command: sleep infinity
+    depends_on:
+      - postgres
+    networks:
+      - default
+
 volumes:
   mongo_data:
+  postgres_data:
 
 networks:
   default:
