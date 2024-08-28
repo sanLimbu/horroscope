@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"regexp"
 
+	"github.com/google/uuid"
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -19,6 +19,8 @@ const (
 type UpdateUserParams struct {
 	FirstName string `json:"firstName"`
 	LastName  string `json:"lastName"`
+	Email     string `json:"email"`
+	Password  string `json:"password"`
 }
 
 func (p UpdateUserParams) ToBSON() bson.M {
@@ -33,12 +35,12 @@ func (p UpdateUserParams) ToBSON() bson.M {
 }
 
 type User struct {
-	ID                primitive.ObjectID `bson:"_id" json,omitempty:"id,omitempty"`
-	FirstName         string             `bson:"firstName" json:"firstName"`
-	LastName          string             `bson:"lastName" json:"lastName"`
-	Email             string             `bson:"email" json:"email"`
-	EncryptedPassword string             `bson:"EncryptedPassword" json:"-"`
-	IsAdmin           bool               `bson:"isAdmin" json:"isAdmin"`
+	ID                uuid.UUID `json:"user_id"`
+	FirstName         string    `json:"firstName"`
+	LastName          string    `json:"lastName"`
+	Email             string    `json:"email"`
+	EncryptedPassword string    `json:"-"`
+	IsAdmin           bool      `json:"isAdmin"`
 }
 
 type CreateUserParams struct {

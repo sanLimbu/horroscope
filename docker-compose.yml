@@ -10,7 +10,7 @@ services:
       - mongo_data:/data/db
 
   mongo_client:
-    image: mongo_client
+    image: mongo
     container_name: mongo_client
     command: sleep infinity
     depends_on:
@@ -19,12 +19,12 @@ services:
       - default
 
   postgres:
-    image: postgres
-    container_name: postgres
+    image: postgres:15
+    container_name: postgres_db
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: astrologer
+      POSTGRES_USER: your_postgres_username
+      POSTGRES_PASSWORD: your_postgres_password
+      POSTGRES_DB: your_postgres_database
     ports:
       - "5432:5432"
     volumes:
@@ -33,7 +33,7 @@ services:
       - default
 
   postgres_client:
-    image: postgres_client
+    image: postgres:15
     container_name: postgres_client
     command: sleep infinity
     depends_on:
